@@ -1,26 +1,111 @@
 @import "tailwindcss";
 
+@theme {
+  --color-paper: var(--color-paper);
+  --color-pencil: var(--color-pencil);
+  --color-muted: var(--color-muted);
+  --color-primary: var(--color-primary);
+  --color-primary-hover: var(--color-primary-hover);
+  --color-accent: var(--color-accent);
+  --color-accent-hover: var(--color-accent-hover);
+  --color-secondary: var(--color-secondary);
+  --color-highlight: var(--color-highlight);
+
+  --font-heading: var(--font-kalam);
+  --font-body: var(--font-patrick-hand);
+
+  --shadow-hand: 4px 4px 0px 0px var(--color-pencil);
+  --shadow-hand-lg: 8px 8px 0px 0px var(--color-pencil);
+  --shadow-hand-hover: 2px 2px 0px 0px var(--color-pencil);
+}
+
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-paper: #fdfbf7;
+  --color-pencil: #2d2d2d;
+  --color-muted: #e5e0d8;
+  --color-primary: #164383;
+  --color-primary-hover: #0c366e;
+  --color-accent: #1f6fd1;
+  --color-accent-hover: #1557a0;
+  --color-secondary: #ef4444;
+  --color-highlight: #fef08a;
+
+  --background: var(--color-paper);
+  --foreground: var(--color-pencil);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
+/* System dark preference - unless manual light mode is forced */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  :root:not(.light) {
+    --color-paper: #1a1a1a;
+    --color-pencil: #f3f3f3;
+    --color-muted: #2d2d2d;
+    --color-accent: #3b82f6;
+    --color-accent-hover: #60a5fa;
+    --color-highlight: #334155;
+    
+    --background: var(--color-paper);
+    --foreground: var(--color-pencil);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Manual dark mode override */
+.dark {
+  --color-paper: #1a1a1a !important;
+  --color-pencil: #f3f3f3 !important;
+  --color-muted: #2d2d2d !important;
+  --color-accent: #3b82f6 !important;
+  --color-accent-hover: #60a5fa !important;
+  --color-highlight: #334155 !important;
+  
+  --background: var(--color-paper) !important;
+  --foreground: var(--color-pencil) !important;
 }
+
+
+
+
+
+
+body {
+  background-color: var(--color-paper);
+  background-image: radial-gradient(var(--color-muted) 1px, transparent 1px);
+  background-size: 24px 24px;
+  color: var(--color-pencil);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Custom Utilities */
+.wobbly-border {
+  border: 3px solid var(--color-pencil);
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+}
+
+.wobbly-border-md {
+  border: 2px solid var(--color-pencil);
+  border-radius: 125px 8px 110px 8px / 8px 110px 8px 125px;
+}
+
+@layer utilities {
+  @keyframes jiggle {
+    0%, 100% { transform: rotate(-1deg); }
+    50% { transform: rotate(1.5deg); }
+  }
+  
+  .jiggle-hover:hover {
+    animation: jiggle 0.3s ease-in-out infinite;
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-pencil);
+  }
+}
+
+
