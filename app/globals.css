@@ -38,9 +38,9 @@
 /* System dark preference - unless manual light mode is forced */
 @media (prefers-color-scheme: dark) {
   :root:not(.light) {
-    --color-paper: #1a1a1a;
-    --color-pencil: #f3f3f3;
-    --color-muted: #2d2d2d;
+    --color-paper: #1e1e20;
+    --color-pencil: #d1d1d1;
+    --color-muted: #2d2d30;
     --color-accent: #3b82f6;
     --color-accent-hover: #60a5fa;
     --color-highlight: #334155;
@@ -52,9 +52,9 @@
 
 /* Manual dark mode override */
 .dark {
-  --color-paper: #1a1a1a !important;
-  --color-pencil: #f3f3f3 !important;
-  --color-muted: #2d2d2d !important;
+  --color-paper: #1e1e20 !important;
+  --color-pencil: #d1d1d1 !important;
+  --color-muted: #2d2d30 !important;
   --color-accent: #3b82f6 !important;
   --color-accent-hover: #60a5fa !important;
   --color-highlight: #334155 !important;
@@ -62,6 +62,7 @@
   --background: var(--color-paper) !important;
   --foreground: var(--color-pencil) !important;
 }
+
 
 
 
