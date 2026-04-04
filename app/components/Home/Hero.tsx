@@ -21,7 +21,7 @@ export default function Hero() {
       <div className="space-y-6 relative z-10">
         <p className="font-body text-xl text-pencil/60">Hello, I'm</p>
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading leading-tight text-pencil whitespace-nowrap">
-          Jhay-R <span className="text-primary">Cervantes.</span>
+          Jhay-R <span className="text-primary">Cervantes</span>
         </h2>
 
 
